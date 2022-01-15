@@ -21,20 +21,20 @@ num_workers= 0
 Get_Train_Test= DataLoader(batch_size, num_workers)
 train_loader, test_loader = Get_Train_Test.run()
 
-
 # Training settings  for model 1
 model_cnn1 = CNN_1(input_size, n_features, output_size)
 optimizer = optim.SGD(model_cnn1.parameters(), lr=0.01, momentum=0.5)
 
-t = Train(train_loader, optimizer, model_cnn1)
+#t = Train(train_loader, optimizer, model_cnn1)
 e = Test_Eval(test_loader, model_cnn1)
 
-for epoch in range(0, 1):
-    t.train(epoch)
-    print("Traning Done .... \n")
-    print("Testing Result is: ")
-    e.test()
+#for epoch in range(0, 1):
+#    t.train(epoch)
+#    print("Traning Done .... \n")
+#    print("Testing Result is: ")
+#    e.test()
 
+e.test_single_image()
 '''
 # Training settings for model 2
 n_features = 6 # hyperparameter

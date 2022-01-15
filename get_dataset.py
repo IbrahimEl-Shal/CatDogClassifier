@@ -11,8 +11,8 @@ class GetDataSet():
 
     def download_dataset(self):
         if not os.path.exists(self._dataset_path):
-            print('Directory does not exist.')
-            exit(-1)
+            print('Directory does not exist, New Directory has been Created')
+            os.mkdir('Main_Folder_Dataset')
 
         dataset_url = str(self._dataset_link)
         temp_dataset_path = os.path.join(self._dataset_path, 'dataset_archive.zip')
