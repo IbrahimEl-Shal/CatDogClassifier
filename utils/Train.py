@@ -20,4 +20,4 @@ class Train():
                     epoch, batch_idx * len(data), len(self._train_loader.dataset),
                     100. * batch_idx / len(self._train_loader), loss.item()))
                 
-                torch.save(self._model.state_dict(), 'dogcatwights.pth')
+                torch.save(self._model.state_dict(), 'Output/dogcatwights.pth')

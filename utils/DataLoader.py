@@ -5,8 +5,8 @@ import torchvision.transforms as transforms
 class DataLoader():
     def __init__(self ,batch_size:int, num_workers:int):
         ''' define training and test data directories '''
-        self._train_dir = 'Main_Folder_Dataset/Dataset/training_set/'
-        self._test_dir = 'Main_Folder_Dataset/Dataset/test_set/'
+        self._train_dir = 'Data/Dataset/training_set/'
+        self._test_dir = 'Data/Dataset/test_set/'
         self._batch_size = batch_size
         self._num_workers = num_workers
         self._image_size = (224, 224)

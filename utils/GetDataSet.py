@@ -12,7 +12,7 @@ class GetDataSet():
     def download_dataset(self):
         if not os.path.exists(self._dataset_path):
             print('Directory does not exist, New Directory has been Created')
-            os.mkdir('Main_Folder_Dataset')
+            os.mkdir('Data')
 
         dataset_url = str(self._dataset_link)
         temp_dataset_path = os.path.join(self._dataset_path, 'dataset_archive.zip')
@@ -44,6 +44,6 @@ class GetDataSet():
 if __name__=="__main__":
 
     url = 'https://bit.ly/3GuMVI9' #www.kaggle.com/tongpython/cat-and-dog
-    folder_name = 'Main_Folder_Dataset'
+    folder_name = 'Data'
     Get_Dataset= GetDataSet(url, folder_name)
     Get_Dataset.run()
