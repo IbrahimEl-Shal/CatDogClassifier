@@ -9,5 +9,11 @@ WORKDIR /src
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
-COPY ["models", "Output", "utils", "main.py", "./"]
-CMD [ "python", "./main.py" ]
+COPY models/* ./models/
+COPY utils/*  ./utils/
+COPY ["main.py", "README.md" ,"./"]
+COPY Output  ./Output/
+COPY Data  ./Data/
+
+#CMD [ "python", "./main.py", "-m", "model_2", "-t", "train" ]
+CMD [ "python", "./main.py", "-m", "model_2", "-t", "test" ]
