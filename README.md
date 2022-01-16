@@ -109,9 +109,9 @@ pip install -r requirement.txt
 ```
 #### Usage
 To execute the project, firstly the arguments are 
-* -d: (optional) if you need download the dataset, set for example "-d yes", default is "no".
-* -b: (optional) if you need set the number of batch size, set for example "-b 128", default is "64".
-* -n: (optional) if you need set the number of workers, set for example "-n 3", default is "0".
+* -d: (optional) If you need to download the dataset, set the value "-d yes". The default value is "no".
+* -b: (optional) If you need to set the number of batch size, set for example "-b 128". The default value is "64".
+* -n: (optional) If you need to set the number of workers, set for example "-n 3". The default value is "0".
 * -m: (required) The CNN Model Architecture in models directory.
 * -t: (required) The mode of operation (Test or Train).
 
