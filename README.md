@@ -92,7 +92,7 @@ The model in the model directory called
 
 * model_2 is structured by four hidden layers, with a kernel size of 5, and a feature map expanded to 128 followed by two fully connected layers. The rectified-linear activation function (relu) was used over data. The last layer for predictions is log_softmax. 
 
-[image6]: ./Model_6.png "model2"
+[image6]: ./Model_2.png "model2"
 ![alt text][image6]
 
 ### Installations
