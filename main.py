@@ -31,6 +31,7 @@ if __name__ == "__main__":
     parser.add_argument('-n', '--num_workers', nargs='?', default='0', help='The Value of Workers') 
     parser.add_argument('-m', '--model', help='The CNN Model Architecture', required=True) 
     parser.add_argument('-t', '--mode', help='Train or Test', required=True) 
+    parser.add_argument('-p', '--img_name', help='Name of test image in Data/TestOne') 
 
     args = parser.parse_args()
 
@@ -61,13 +62,17 @@ if __name__ == "__main__":
 
     if(args.mode == 'train'):
         t = Train(train_loader, optimizer, model_cnn)
-        e = Test_Eval(test_loader, model_cnn)
+        e = Test_Eval(model_cnn)
         for epoch in range(0, 1):
             t.train(epoch)
             t.plot_loss()
             print("Traning Done .... \n")
             print("Testing Result is: ")
-            e.test()
+            e.test(test_loader)
     elif(args.mode == 'test'):
-        e = Test_Eval(test_loader, model_cnn)
-        e.test_single_image()
+        e = Test_Eval(model_cnn)
+        if(args.img_name):
+            path_img_= 'Data/TestOne/'+str(args.img_name)
+            e.test_single_image(path_img_)
+        else:
+            print("No Image Name Exists ..")
