@@ -15,7 +15,6 @@ CatDogClassifier
 │   │      └── cats
 │   │      └── dogs
 │   └── TestOne
-│   │      └── single
 │
 ├── models
 │   └── model_no.py
@@ -114,6 +113,7 @@ To execute the project, firstly the arguments are
 * -n: (optional) If you need to set the number of workers, set for example "-n 3". The default value is "0".
 * -m: (required) The CNN Model Architecture in models directory.
 * -t: (required) The mode of operation (Test or Train).
+* -p: (required if mode test) The name of image need to be tested in Data/TestOne directory.
 
 To Train the model run
 ```
@@ -121,7 +121,7 @@ python main.py -m model_2 -t train
 ```
 To Test the model on single image run
 ```
-python main.py -m model_2 -t test
+python main.py -m model_2 -t test -p dog2.jpg
 ```
 #### 2. Docker
 Using docker, just you neet to change the access permissions of files
