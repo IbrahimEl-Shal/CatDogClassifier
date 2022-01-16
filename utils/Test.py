@@ -70,6 +70,6 @@ class Test_Eval():
         ps=torch.exp(self._model(image1))
         topconf, topclass = ps.topk(1, dim=1)
         if topclass.item() == 1:
-            return {'class':'dog','confidence':str(topconf.item())}
+            print({'class':'dog','confidence':str(topconf.item())})
         else:
-            return {'class':'cat','confidence':str(topconf.item())}
+            print({'class':'cat','confidence':str(topconf.item())})
