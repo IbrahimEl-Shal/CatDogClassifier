@@ -82,7 +82,7 @@ At first, I plotted some random images from the training set and here it is:
 * All the images were normalized using the mean = [0.485, 0.456, 0.406] and standard deviation = [0.229, 0.224, 0.225].
 
 #### 2. Models
-The model in the model directory called
+The models Architecture at the model directory are
 
 * model_1 is structured by two hidden layers, with a kernel size of 5, and a feature map 2 followed by two fully connected layers. The rectified-linear activation function (relu) was used over data. The last layer for predictions is log_softmax. 
 
