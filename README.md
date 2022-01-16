@@ -82,10 +82,18 @@ At first, I plotted some random images from the training set and here it is:
 * All the images were normalized using the mean = [0.485, 0.456, 0.406] and standard deviation = [0.229, 0.224, 0.225].
 
 #### 2. Models
-The recommended model in the model directory called model_2 is structured by four hidden layers, with a kernel size of 5, and a feature map expanded to 128 followed by two fully connected layers. The rectified-linear activation function (relu) was used over data. The last layer for predictions is log_softmax. 
+The model in the model directory called
 
-[image5]: ./Model_1.png "model"
+* model_1 is structured by two hidden layers, with a kernel size of 5, and a feature map 2 followed by two fully connected layers. The rectified-linear activation function (relu) was used over data. The last layer for predictions is log_softmax. 
+
+[image5]: ./Model_1.png "model1"
 ![alt text][image5]
+
+
+* model_2 is structured by four hidden layers, with a kernel size of 5, and a feature map expanded to 128 followed by two fully connected layers. The rectified-linear activation function (relu) was used over data. The last layer for predictions is log_softmax. 
+
+[image6]: ./Model_6.png "model2"
+![alt text][image6]
 
 ### Installations
 
