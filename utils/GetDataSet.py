@@ -19,7 +19,7 @@ class GetDataSet():
         print('Downloading Dataset .....')
     
         urllib.request.urlretrieve(dataset_url, temp_dataset_path)
-        dataset_dir = os.path.join(self._dataset_path, 'Dataset')
+        dataset_dir = os.path.join(self._dataset_path)
         print('Downloading Done')
 
         if not os.path.exists(dataset_dir):
@@ -28,7 +28,7 @@ class GetDataSet():
 
     def extracting(self):
         temp_dataset_path = os.path.join(self._dataset_path, 'dataset_archive.zip')
-        dataset_dir = os.path.join(self._dataset_path, 'Dataset')
+        dataset_dir = os.path.join(self._dataset_path)
     
         with zipfile.ZipFile(temp_dataset_path, 'r') as zip_ref:
             zip_ref.extractall(dataset_dir)

@@ -64,6 +64,7 @@ if __name__ == "__main__":
         e = Test_Eval(test_loader, model_cnn)
         for epoch in range(0, 1):
             t.train(epoch)
+            t.plot_loss()
             print("Traning Done .... \n")
             print("Testing Result is: ")
             e.test()

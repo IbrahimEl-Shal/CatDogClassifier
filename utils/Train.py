@@ -1,11 +1,13 @@
 import torch
 import torch.nn.functional as F
+import matplotlib.pyplot as plt
 
 class Train():
     def __init__(self, train_loader, optimizer, model):
         self._train_loader = train_loader
         self._model = model
         self._optimizer = optimizer
+        self._losses = []
 
     def train(self, epoch):
         self._model.train()
@@ -19,5 +21,12 @@ class Train():
                 print('Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}'.format(
                     epoch, batch_idx * len(data), len(self._train_loader.dataset),
                     100. * batch_idx / len(self._train_loader), loss.item()))
+                self._losses.append(float(loss.item()))
                 
                 torch.save(self._model.state_dict(), 'Output/dogcatwights.pth')
+
+    def plot_loss(self):
+        
+        plt.plot(self._losses)
+        plt.legend(['loss'])
+        plt.savefig('Model.png')
