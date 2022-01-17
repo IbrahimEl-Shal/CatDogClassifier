@@ -100,7 +100,7 @@ Accuracy = 65%
 
 Accuracy = 97%
 
-[image6]: .results/Model_3.png "model3"
+[image6]: ./results/Model_3.png "model3"
 ![alt text][image6]
 
 ### Installations
