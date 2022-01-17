@@ -15,5 +15,6 @@ COPY ["main.py", "README.md" ,"./"]
 COPY Output  ./Output/
 COPY Data  ./Data/
 
-#CMD [ "python", "./main.py", "-m", "model_2", "-t", "train" ]
-CMD [ "python", "./main.py", "-m", "model_2", "-t", "test" ]
+CMD [ "python", "./main.py", "-m", "model_2", "-t", "train" ]
+
+CMD [ "python", "./main.py", "-m", "model_2", "-t", "test", "-p", "dog1.jpg"]

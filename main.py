@@ -5,6 +5,7 @@ from utils.Test import Test_Eval
 
 from models.model_1 import CNN_1
 from models.model_2 import CNN_2
+from models.model_3 import CNN_3
 
 import torch
 import torch.optim as optim
@@ -51,28 +52,39 @@ if __name__ == "__main__":
         # Training settings  for model 1 
         n_features = 2 # hyperparameter
         model_cnn = CNN_1(input_size, n_features, output_size)
+        #print(model_cnn)
         optimizer = optim.SGD(model_cnn.parameters(), lr=0.01, momentum=0.5)
     elif(args.model == 'model_2'):
         n_features = 6 # hyperparameter
         model_cnn = CNN_2(input_size, n_features, output_size)
+        #print(model_cnn)
         optimizer = optim.SGD(model_cnn.parameters(), lr=0.01, momentum=0.5)
+    elif(args.model == 'model_3'):
+        model_cnn = CNN_3()
+        model_cnn = model_cnn.build()
+        #print(model_cnn)
+        optimizer = optim.Adam(model_cnn.classifier.parameters(), lr=0.003)
+        model_cnn.to(device)
     else:
         print("The model not defined")
         exit(-1)
 
     if(args.mode == 'train'):
-        t = Train(train_loader, optimizer, model_cnn)
+        t = Train(train_loader, test_loader, optimizer, model_cnn)
         e = Test_Eval(model_cnn)
-        for epoch in range(0, 1):
-            t.train(epoch)
-            t.plot_loss()
-            print("Traning Done .... \n")
-            print("Testing Result is: ")
-            e.test(test_loader)
+        if(args.model != 'model_3'):
+            for epoch in range(0, 10):
+                t.train(epoch, str(args.model[-1])
+                t.plot_loss()
+                print("Traning Done .... \n")
+                print("Testing Result is: ")
+                e.test(test_loader)
+        else:
+            t.train_new(1, device)
     elif(args.mode == 'test'):
         e = Test_Eval(model_cnn)
         if(args.img_name):
             path_img_= 'Data/TestOne/'+str(args.img_name)
-            e.test_single_image(path_img_)
+            e.test_single_image(path_img_, str(args.model[-1]))
         else:
             print("No Image Name Exists ..")

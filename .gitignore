@@ -4,3 +4,5 @@ Tahaluf_MLOps_Task1.pdf
 envcatdog
 __pycache__
 .vscode
+catvdog_model3.pth
+.ipynb_checkpoints

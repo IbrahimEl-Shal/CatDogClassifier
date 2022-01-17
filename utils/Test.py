@@ -51,20 +51,26 @@ class Test_Eval():
             print("cat")
 
     def image_transform(self, imagepath):
-        test_transforms = transforms.Compose([
-                                    transforms.Resize(self._image_size), 
-                                    transforms.ToTensor(), 
-                                    transforms.Normalize(self._mean, self._std)])
+        #test_transforms = transforms.Compose([
+        #                            transforms.Resize(self._image_size), 
+        #                            transforms.ToTensor(), 
+        #                            transforms.Normalize(self._mean, self._std)])
+
+        test_transforms = transforms.Compose([transforms.Resize(255),
+                                            transforms.CenterCrop(224),
+                                            transforms.ToTensor(),
+                                            transforms.Normalize(self._mean, self._std)])
 
         
         image = Image.open(imagepath)
         imagetensor = test_transforms(image)
         return imagetensor
 
-    def test_single_image(self, imagepath):
+    def test_single_image(self, imagepath, no):
 
-        self._model.load_state_dict(torch.load('Output/dogcatwights.pth'))
+        self._model.load_state_dict(torch.load('Output/dogcatwights_model'+no+'.pth')) 
         self._model.eval()
+        print(self._model)
         image = self.image_transform(imagepath)
         image1 = image[None,:,:,:]
         ps=torch.exp(self._model(image1))

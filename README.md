@@ -79,19 +79,28 @@ At first, I plotted some random images from the training set and here it is:
 #### 1. Preprocessing
 * All images were rezied to 244x244.
 * All the images were normalized using the mean = [0.485, 0.456, 0.406] and standard deviation = [0.229, 0.224, 0.225].
+* Augmentation is applied by rotating the image by an angle of 30 and random cropping.
 
 #### 2. Models
 The models Architecture at the model directory are
 
 * model_1 is structured by two hidden layers, with a kernel size of 5, and a feature map 2 followed by two fully connected layers. The rectified-linear activation function (relu) was used over data. The last layer for predictions is log_softmax. 
 
-[image5]: ./Model_1.png "model1"
+Accuracy = 50%
+
+[image5]: ./results/Model_1.png "model1"
 ![alt text][image5]
 
 
 * model_2 is structured by four hidden layers, with a kernel size of 5, and a feature map expanded to 128 followed by two fully connected layers. The rectified-linear activation function (relu) was used over data. The last layer for predictions is log_softmax. 
 
-[image6]: ./Model_2.png "model2"
+Accuracy = 65%
+
+* model_3 used a 121-layer DenseNet with a custom classifier for training the network, and It was trained on a GPU "Colab". 
+
+Accuracy = 97%
+
+[image6]: .results/Model_3.png "model3"
 ![alt text][image6]
 
 ### Installations
